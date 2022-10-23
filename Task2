@@ -1,0 +1,31 @@
+import org.junit.Assert;
+
+public class Task2 {
+    public static void main(String[] args) {
+        Assert.assertEquals(invert("abcd"),"dcba");
+        Assert.assertEquals(invert("a"),"a");
+        Assert.assertEquals(invert(null),"");
+    }
+
+    public static String invert(String text){
+
+        if(text==null){
+            return text="";
+        }
+
+        if(text.length()>0) {
+            String result = "";
+            String[] textArr = text.split(" ");
+            for (String word : textArr) {
+                for (int i = word.length() - 1; i >= 0; i--) {
+                    result = result + word.charAt(i);
+                }
+            }
+            text=result;
+            return text;
+        }
+        else {
+            return text="";
+        }
+    }
+}
