@@ -1,0 +1,25 @@
+import org.junit.Assert;
+
+public class Task3 {
+    public static void main(String[] args) {
+        Assert.assertEquals(normalize("https://example.com:8080/a/b/c"),"https://example.com:8080/a/b/c");
+        Assert.assertEquals(normalize(""),"http://localhost:80");
+        Assert.assertEquals(normalize("example.com"),"http://example.com:80/");
+    }
+    public static String normalize(String text) {
+
+        if (text == "") {
+            return text = "http://localhost:80";
+        }
+
+        if (text.length() > 1) {
+            String[] textArr = text.split(".com");
+            if (textArr.length == 1) {
+                return text = "http://" + text + ":80/";
+            } else {
+                return text;
+            }
+        }
+        return text;
+    }
+}
